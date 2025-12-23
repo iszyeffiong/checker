@@ -99,7 +99,7 @@ const App: React.FC = () => {
   }, [walletInput, foundUsername]);
 
   return (
-    <div className="relative flex flex-col h-[100dvh] w-full overflow-hidden p-4 md:p-8">
+    <div className="relative flex flex-col min-h-[100dvh] w-full overflow-y-auto p-4 md:p-8">
       {/* Decorative Background Doodles */}
       <div className="fixed inset-0 pointer-events-none z-0">
         <Dice className="absolute top-[5%] left-[5%] w-12 h-12 md:w-20 md:h-20 rotate-12 opacity-5" />
@@ -120,9 +120,9 @@ const App: React.FC = () => {
         </div>
       </header>
 
-      {/* Main Content - Flex Grow with flex-shrink disabled to keep it centered and visible */}
-      <main className="relative z-10 w-full max-w-xl mx-auto flex flex-col justify-center flex-grow overflow-hidden px-1">
-        <div className="bg-white doodle-border p-5 md:p-10 sketch-shadow bg-opacity-95 backdrop-blur-md transition-all flex flex-col max-h-[70vh] md:max-h-none overflow-hidden">
+      {/* Main Content - Centered with flex-grow, scrollable via root container */}
+      <main className="relative z-10 w-full max-w-xl mx-auto flex flex-col justify-center flex-grow px-1 py-2">
+        <div className="bg-white doodle-border p-5 md:p-10 sketch-shadow bg-opacity-95 backdrop-blur-md transition-all flex flex-col">
 
           <div className="mb-6 md:mb-8 flex-shrink-0">
             <label className="block text-lg md:text-xl mb-2 font-bold font-marker">
@@ -148,8 +148,8 @@ const App: React.FC = () => {
             {status === EligibilityStatus.CHECKING ? 'SHUFFLING...' : 'CHECK WHITELIST STATUS'}
           </button>
 
-          {/* Results Area - Flex Grow within card to allow scrollable overflow if message is too long, but keeping card itself static */}
-          <div className="mt-6 md:mt-8 flex-grow flex items-center justify-center border-t-2 border-dashed border-gray-100 pt-4 overflow-y-auto min-h-0">
+          {/* Results Area - Allow natural height expansion */}
+          <div className="mt-6 md:mt-8 flex items-center justify-center border-t-2 border-dashed border-gray-100 pt-4 min-h-[100px]">
             {status === EligibilityStatus.IDLE && (
               <p className="text-lg md:text-xl opacity-40 italic font-hand text-center leading-tight">
                 Check your status above.
