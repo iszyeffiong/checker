@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>DoodleLeagues Whitelist Checker</title>
+    <!-- Simple Favicon using the Logo Concept -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2240%22 fill=%22none%22 stroke=%22black%22 stroke-width=%228%22/><path d=%22M 15 35 Q 50 15 85 35%22 stroke=%22black%22 stroke-width=%228%22 fill=%22none%22/></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Architects Daughter', cursive;
+            background-image: 
+                linear-gradient(#e5e7eb 1px, transparent 1px),
+                linear-gradient(90deg, #e5e7eb 1px, transparent 1px);
+            background-size: 30px 30px;
+            background-color: #fcfcf9;
+            color: #1a1a1a;
+            position: fixed;
+            width: 100%;
+        }
+        .doodle-border {
+            border: 3px solid #000;
+            border-radius: 4px 10px 4px 10px / 10px 4px 10px 4px;
+            position: relative;
+        }
+        .doodle-border::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border: 1.5px solid #000;
+            border-radius: 8px 3px 8px 3px / 3px 8px 3px 8px;
+            pointer-events: none;
+            opacity: 0.3;
+        }
+        .doodle-button {
+            border: 3px solid #000;
+            border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .doodle-button:hover {
+            transform: scale(1.03) rotate(-1.5deg);
+            box-shadow: 6px 6px 0px 0px #000;
+        }
+        .doodle-button:active {
+            transform: scale(0.96);
+            box-shadow: 2px 2px 0px 0px #000;
+        }
+        .sketch-shadow {
+            box-shadow: 8px 8px 0px 0px rgba(0,0,0,0.05);
+        }
+
+        /* Signature DoodleLeagues Animations */
+        @keyframes wiggle {
+          0%, 100% { transform: rotate(0deg); }
+          25% { transform: rotate(-2.5deg); }
+          50% { transform: rotate(2.5deg); }
+          75% { transform: rotate(-1.5deg); }
+        }
+
+        @keyframes bounce {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-10px); }
+        }
+
+        .dl-wiggle {
+          transform-origin: center;
+          animation: wiggle 4s ease-in-out infinite;
+        }
+
+        .dl-bounce {
+          transform-origin: center;
+          animation: bounce 2.5s ease-in-out infinite;
+        }
+
+        .font-marker { font-family: 'Architects Daughter', cursive; }
+        .font-hand { font-family: 'Shadows Into Light', cursive; }
+    </style>
+
+
+</head>
+<body>
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
